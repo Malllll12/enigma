@@ -1,4 +1,3 @@
-require "simplecov"
 require "spec_helper"
 require "rspec"
 require "./lib/enigma"
