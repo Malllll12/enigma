@@ -21,4 +21,8 @@ class Encrypt
       d_shift: @key.key_shift[3].to_i + @date.d_offset.to_i,
     }
   end
+
+  def downcase(message)
+    @message.downcase
+  end
 end

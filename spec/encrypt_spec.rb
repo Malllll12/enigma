@@ -32,4 +32,12 @@ describe Encrypt do
     expect(@encrypt.shifter[:c_shift]).to eq(27)
     expect(@encrypt.shifter[:d_shift]).to eq(35)
   end
+
+  it "downcase" do
+    expect(@encrypt.downcase("HEllo wORld")).to eq("hello world")
+  end
+
+  # it '#encode' do
+  #   expect(@encrypt.encode).to
+  # end
 end
