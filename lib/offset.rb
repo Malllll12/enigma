@@ -24,4 +24,7 @@ class Offset
     four << offset_squared[-1].to_i
   end
 
+  def a_offset
+    final_4[0]
+  end
 end

@@ -37,5 +37,8 @@ describe Offset do
     expect(offset2.final_4).to eq([5, 4, 4, 1])
   end
 
-  
+  it 'a_offset' do
+  offset2 = Offset.new("122521")
+  expect(offset2.a_offset).to eq(5)
+end
 end
