@@ -32,4 +32,10 @@ describe Offset do
     expect(offset2.offset_squared). to eq("15011395441")
   end
 
+  it "finds final 4 of squared" do
+    offset2 = Offset.new("122521")
+    expect(offset2.final_4).to eq([5, 4, 4, 1])
+  end
+
+  
 end

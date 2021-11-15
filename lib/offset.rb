@@ -15,4 +15,13 @@ class Offset
     squared = (date * date).to_s
     squared
   end
+
+  def final_4
+    four = []
+    four << offset_squared[-4].to_i
+    four << offset_squared[-3].to_i
+    four << offset_squared[-2].to_i
+    four << offset_squared[-1].to_i
+  end
+
 end
