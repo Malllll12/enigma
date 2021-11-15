@@ -27,4 +27,8 @@ class Offset
   def a_offset
     final_4[0]
   end
+
+  def b_offset
+    final_4[1]
+  end
 end
