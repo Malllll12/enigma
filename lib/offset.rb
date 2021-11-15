@@ -31,4 +31,8 @@ class Offset
   def b_offset
     final_4[1]
   end
+
+  def c_offset
+    final_4[2]
+  end
 end

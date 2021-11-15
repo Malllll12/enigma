@@ -46,4 +46,9 @@ describe Offset do
     offset2 = Offset.new("122521")
     expect(offset2.b_offset).to eq(4)
   end
+
+  it 'c_offset' do
+    offset2 = Offset.new("122521")
+    expect(offset2.c_offset).to eq(4)
+  end
 end
