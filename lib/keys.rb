@@ -7,4 +7,12 @@ class Keys
       @key = key
     end
   end
+
+  def key_shift
+    shift = []
+    4.times do |argument|
+      shift.append @key[argument].concat @key[argument + 1]
+    end
+    shift
+  end
 end
