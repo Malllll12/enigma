@@ -33,11 +33,13 @@ describe Encrypt do
     expect(@encrypt.shifter[:d_shift]).to eq(35)
   end
 
-  it "downcase" do
-    expect(@encrypt.downcase("HEllo wORld")).to eq("hello world")
+  it '#encode' do
+    expect(@encrypt.encode("HelLo WOrld")).to eq("owltvwwyd")
+
   end
 
-  # it '#encode' do
-  #   expect(@encrypt.encode).to
-  # end
+  it "encodes" do
+    encrypt2 = Encrypt.new("MaL", "01234", "122521")
+    expect(encrypt2.encode("Mal")).to eq("tsl")
+  end
 end

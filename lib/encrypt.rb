@@ -22,7 +22,18 @@ class Encrypt
     }
   end
 
-  def downcase(message)
-    @message.downcase
+  def encode(message)
+    down = @message.downcase
+    encryptor = []
+    down.each_char.with_index do |character, index|
+      x = @character_set.index(character)
+      if @character_set.include?(character)
+        y = (x + shifter.values[index % 4] % @character_set.length)
+        encryptor << @character_set[y]
+      else
+        encryptor << character
+      end
+    end
+    encryptor.join
   end
 end
