@@ -9,4 +9,10 @@ class Offset
       @date = date
     end
   end
+
+  def offset_squared
+    date = @date.to_i
+    squared = (date * date).to_s
+    squared
+  end
 end

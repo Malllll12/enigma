@@ -26,4 +26,10 @@ describe Offset do
     expect(@offset.date.length).to eq(6)
     expect(@offset.date).to be_a(String)
   end
+
+  it "squares the offset" do
+    offset2 = Offset.new("122521")
+    expect(offset2.offset_squared). to eq("15011395441")
+  end
+
 end
