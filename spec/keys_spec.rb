@@ -8,7 +8,6 @@ describe Keys do
   before :each do
     @key = Keys.new
     @new_key = Keys.new("02715")
-
   end
 
   it 'exists' do

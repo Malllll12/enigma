@@ -23,19 +23,18 @@ class Encrypt
   end
 
   def encode(message)
-    down = @message.downcase
+    down = message.downcase
     encryptor = []
     down.each_char.with_index do |character, index|
-      char_check = @character_set.index(character)
-      if @character_set.include?(character)
-        shift = (char_check += shifter.values[index % 4] % @character_set.length)
-        encryptor << @character_set[shift]
+      char_check = character_set.index(character)
+      if character_set.include?(character)
+        shift = (char_check += shifter.values[index % 4]) % character_set.length
+        encryptor << character_set[shift]
       else
         encryptor << character
       end
     end
     encryptor.join
-    # require "pry"; binding.pry
   end
 
   def encrypt_hash
