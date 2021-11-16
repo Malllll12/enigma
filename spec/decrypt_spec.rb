@@ -8,14 +8,14 @@ require "./lib/decrypt"
 
 describe Decrypt do
   before :each do
-    @decrypt = Decrypt.new("owltvwwyd", "01234", "122521")
+    @decrypt = Decrypt.new("keder ohulw", "02715", "040895")
   end
   it 'exists' do
     expect(@decrypt).to be_an_instance_of(Decrypt)
   end
 
   it 'attributes' do
-    expect(@decrypt.message).to eq("owltvwwyd")
+    expect(@decrypt.message).to eq("keder ohulw")
     expect(@decrypt.key.class).to eq(Keys)
     expect(@decrypt.date.class).to eq(Offset)
     expect(@decrypt.character_set.length).to eq(27)
@@ -26,23 +26,28 @@ describe Decrypt do
 
   it '#shifter' do
     expect(@decrypt.shifter).to be_a(Hash)
-    expect(@decrypt.shifter[:a_shift]).to eq(7)
-    expect(@decrypt.shifter[:b_shift]).to eq(18)
-    expect(@decrypt.shifter[:c_shift]).to eq(27)
-    expect(@decrypt.shifter[:d_shift]).to eq(35)
+    expect(@decrypt.shifter[:a_shift]).to eq(3)
+    expect(@decrypt.shifter[:b_shift]).to eq(27)
+    expect(@decrypt.shifter[:c_shift]).to eq(73)
+    expect(@decrypt.shifter[:d_shift]).to eq(20)
   end
 
   it '#decode' do
-    expect(@decrypt.decode("owltvwwyd")).to eq("HelLo WOrld")
+    expect(@decrypt.decode("keder ohulw")).to eq("hello world")
   end
 
-  it "encodes" do
+  it "decodes" do
     encrypt2 = Encrypt.new("MaL", "01234", "122521")
-    expect(encrypt2.encode("Mal")).to eq("tsl")
+    expect(encrypt2.encode("Mal")).to eq("sql")
   end
 
   it "decrypt_hash" do
     expect(@decrypt.decrypt_hash).to be_a(Hash)
     expect(@decrypt.decrypt_hash.count).to eq(3)
+  end
+
+  it '#decrypt_start' do
+    expected = {:date=>"040895", :decryption=>"hello world", :key=>"02715"}
+    expect(@decrypt.decrypt_start).to eq(expected)
   end
 end

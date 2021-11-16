@@ -6,26 +6,27 @@ class Decrypt
   def initialize(message, key, date)
     @message = message
     @key = Keys.new(key)
-    @date  = Offset.new
+    @date  = Offset.new(date)
     @character_set = ("a".."z").to_a << " "
   end
 
   def shifter
-    key_offset = {
-      a_shift: @key.key_shift[0].to_i + @date.a_offset.to_i,
-      b_shift: @key.key_shift[1].to_i + @date.b_offset.to_i,
-      c_shift: @key.key_shift[2].to_i + @date.c_offset.to_i,
-      d_shift: @key.key_shift[3].to_i + @date.d_offset.to_i,
+     {
+      a_shift: @key.key_shift[0].to_i + @date.offset_shifter[0],
+      b_shift: @key.key_shift[1].to_i + @date.offset_shifter[1],
+      c_shift: @key.key_shift[2].to_i + @date.offset_shifter[2],
+      d_shift: @key.key_shift[3].to_i + @date.offset_shifter[3],
     }
   end
 
   def decode(message)
     decryptor = []
     message.each_char.with_index do |character, index|
-      x = @character_set.index(character)
+      char_check = @character_set.index(character)
       if @character_set.include?(character)
-        shift = (x + shifter.values[index % 4] % @character_set.length)
+        shift = (char_check - shifter.values[index % 4] % @character_set.length)
         decryptor << @character_set[shift]
+        # require "pry"; binding.pry
       else
         decryptor << character
       end
@@ -33,11 +34,16 @@ class Decrypt
     decryptor.join
   end
 
-  # def decrypt_hash
-  #   {
-  #     encryption: decode(message),
-  #     key: key.key,
-  #     date: date.date
-  #   }
-  # end
+  def decrypt_hash
+    {
+      decryption: decode(message),
+      key: key.key,
+      date: date.date
+    }
+  end
+
+  def decrypt_start
+    decode(message)
+    decrypt_hash
+  end
 end
