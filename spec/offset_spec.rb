@@ -7,7 +7,7 @@ require "./lib/offset"
 
 describe Offset do
   before :each do
-    @offset = Offset.new
+    @offset = Offset.new()
   end
 
   it 'exists' do
@@ -29,31 +29,16 @@ describe Offset do
 
   it "squares the offset" do
     offset2 = Offset.new("122521")
-    expect(offset2.offset_squared). to eq("15011395441")
+    expect(offset2.final_4_offset_squared). to eq("5441")
   end
 
-  it "finds final 4 of squared" do
-    offset2 = Offset.new("122521")
-    expect(offset2.final_4).to eq([5, 4, 4, 1])
+  it "finds final 4 of squared without argument" do
+    expect(@offset.final_4_offset_squared).to eq("6641")
   end
 
-  it 'a_offset' do
+  it '#offset_shifter' do
     offset2 = Offset.new("122521")
-    expect(offset2.a_offset).to eq(5)
-  end
 
-  it 'b_offset' do
-    offset2 = Offset.new("122521")
-    expect(offset2.b_offset).to eq(4)
-  end
-
-  it 'c_offset' do
-    offset2 = Offset.new("122521")
-    expect(offset2.c_offset).to eq(4)
-  end
-
-  it 'd_offset' do
-    offset2 = Offset.new("122521")
-    expect(offset2.d_offset).to eq(1)
+    expect(offset2.offset_shifter).to eq([5, 4, 4, 1])
   end
 end
