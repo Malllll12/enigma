@@ -7,13 +7,13 @@ Turing mod 1 final solo project
 ## Functionality: 2
   Does not decrypt, because key is constantly randomized
   
-# OOP : 2.5
+## OOP : 2.5
   Breakdown is logical but needs improving
   
-# Ruby conventions and mechanics: 2.5
+## Ruby conventions and mechanics: 2.5
   Methods need refactoring
   
-# TDD; 3
+## TDD; 3
   Followed TDD
 
   
