@@ -35,11 +35,15 @@ describe Encrypt do
 
   it '#encode' do
     expect(@encrypt.encode("HelLo WOrld")).to eq("owltvwwyd")
-
   end
 
   it "encodes" do
     encrypt2 = Encrypt.new("MaL", "01234", "122521")
     expect(encrypt2.encode("Mal")).to eq("tsl")
+  end
+
+  it "encrypt_hash" do
+    expect(@encrypt.encrypt_hash).to be_a(Hash)
+    expect(@encrypt.encrypt_hash.count).to eq(3)
   end
 end
