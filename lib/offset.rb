@@ -11,7 +11,7 @@ class Offset
   end
 
   def final_4_offset_squared
-    date = (@date.to_i.abs2).to_s[-4..-1]
+    (@date.to_i.abs2).to_s[-4..-1]
   end
 
   def offset_shifter

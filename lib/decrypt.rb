@@ -22,11 +22,10 @@ class Decrypt
   def decode(message)
     decryptor = []
     message.each_char.with_index do |character, index|
-      char_check = @character_set.index(character)
-      if @character_set.include?(character)
-        shift = (char_check - shifter.values[index % 4] % @character_set.length)
-        decryptor << @character_set[shift]
-        # require "pry"; binding.pry
+      char_check = character_set.index(character)
+      if character_set.include?(character)
+        shift = (char_check -= shifter.values[index % 4]) % character_set.length
+        decryptor << character_set[shift]
       else
         decryptor << character
       end

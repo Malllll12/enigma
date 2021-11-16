@@ -48,7 +48,7 @@ describe Encrypt do
   end
 
   it "start" do
-    expected = {:date=>"040895", :decryption=>"keder ohulw", :key=>"02715"}
+    expected = {:date=>"040895", :encryption=>"keder ohulw", :key=>"02715"}
     expect(@encrypt.start).to eq(expected)
   end
 end
