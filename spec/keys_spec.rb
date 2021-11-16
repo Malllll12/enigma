@@ -7,7 +7,7 @@ require "./lib/keys"
 describe Keys do
   before :each do
     @key = Keys.new
-    @new_key = Keys.new("01234")
+    @new_key = Keys.new("02715")
 
   end
 
@@ -17,7 +17,7 @@ describe Keys do
   end
 
   it 'can recieve a key as argument' do
-    expect(@new_key.key).to eq("01234")
+    expect(@new_key.key).to eq("02715")
   end
 
   it 'creates random keys' do
@@ -27,6 +27,6 @@ describe Keys do
   end
 
   it 'splits keys' do
-    expect(@new_key.key_shift).to eq(["01", "12", "23", "34"])
+    expect(@new_key.key_shift).to eq(["02", "27", "71", "15"])
   end
 end

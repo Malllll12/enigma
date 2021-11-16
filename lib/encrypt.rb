@@ -14,7 +14,7 @@ class Encrypt
   end
 
   def shifter
-    key_offset = {
+            {
       a_shift: @key.key_shift[0].to_i + @date.offset_shifter[0],
       b_shift: @key.key_shift[1].to_i + @date.offset_shifter[1],
       c_shift: @key.key_shift[2].to_i + @date.offset_shifter[2],
@@ -26,15 +26,16 @@ class Encrypt
     down = @message.downcase
     encryptor = []
     down.each_char.with_index do |character, index|
-      x = @character_set.index(character)
+      char_check = @character_set.index(character)
       if @character_set.include?(character)
-        shift = (x + shifter.values[index % 4] % @character_set.length)
+        shift = (char_check += shifter.values[index % 4] % @character_set.length)
         encryptor << @character_set[shift]
       else
         encryptor << character
       end
     end
     encryptor.join
+    # require "pry"; binding.pry
   end
 
   def encrypt_hash

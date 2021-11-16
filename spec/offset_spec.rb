@@ -15,8 +15,8 @@ describe Offset do
   end
 
   it 'attributes' do
-    offset2 = Offset.new("122521")
-    expect(offset2.date).to eq("122521")
+    offset2 = Offset.new("040895")
+    expect(offset2.date).to eq("040895")
     expect(offset2.date.length).to eq(6)
     expect(offset2.date).to be_a(String)
   end
@@ -28,8 +28,8 @@ describe Offset do
   end
 
   it "squares the offset" do
-    offset2 = Offset.new("122521")
-    expect(offset2.final_4_offset_squared). to eq("5441")
+    offset2 = Offset.new("040895")
+    expect(offset2.final_4_offset_squared). to eq("1025")
   end
 
   it "finds final 4 of squared without argument" do
@@ -37,7 +37,7 @@ describe Offset do
   end
 
   it '#offset_shifter' do
-    offset2 = Offset.new("122521")
-    expect(offset2.offset_shifter).to eq([5, 4, 4, 1])
+    offset2 = Offset.new("040895")
+    expect(offset2.offset_shifter).to eq([1, 0, 2, 5])
   end
 end

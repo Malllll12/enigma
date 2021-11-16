@@ -10,8 +10,8 @@ class Keys
 
   def key_shift
     shift = []
-    4.times do |arg|
-      shift.append @key[arg].concat @key[arg + 1]
+    4.times do |num|
+      shift.append @key[num].concat @key[num + 1]
     end
     shift
   end
