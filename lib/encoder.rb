@@ -12,4 +12,4 @@ file.close
 result = enigma.encrypt(message)
 creator = File.open(ARGV[1],"w")
 creator.write(result[:encryption])
-puts "Created '#{ARGV[1]}' with the key #{result[:keys]} and date #{result[:date]}"
+puts "Created '#{ARGV[1]}' with the key #{result[:key]} and date #{result[:date]}"
