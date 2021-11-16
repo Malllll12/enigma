@@ -10,6 +10,7 @@ describe Decrypt do
   before :each do
     @decrypt = Decrypt.new("keder ohulw", "02715", "040895")
   end
+
   it 'exists' do
     expect(@decrypt).to be_an_instance_of(Decrypt)
   end
@@ -37,11 +38,11 @@ describe Decrypt do
   end
 
   it "decodes" do
-    encrypt2 = Encrypt.new("MaL", "01234", "122521")
-    expect(encrypt2.encode("Mal")).to eq("sql")
+    decrypt2 = Decrypt.new("sql", "01234", "122521")
+    expect(decrypt2.decode("sql")).to eq("mal")
   end
 
-  it "decrypt_hash" do
+  it "#decrypt_hash" do
     expect(@decrypt.decrypt_hash).to be_a(Hash)
     expect(@decrypt.decrypt_hash.count).to eq(3)
   end
