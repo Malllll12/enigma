@@ -38,7 +38,6 @@ describe Offset do
 
   it '#offset_shifter' do
     offset2 = Offset.new("122521")
-
     expect(offset2.offset_shifter).to eq([5, 4, 4, 1])
   end
 end
